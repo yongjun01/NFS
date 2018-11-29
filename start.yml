@@ -1,0 +1,14 @@
+---
+- name: Create SVM & Volume
+  hosts: localhost
+  
+  roles:
+    - svm
+    - volume
+
+- name: Server - Mount NFS Volume
+  hosts: ansible-server
+  gather_facts: false
+
+  roles:
+    - mount

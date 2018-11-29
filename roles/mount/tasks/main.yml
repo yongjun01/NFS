@@ -1,0 +1,19 @@
+---
+- name: Install NFS-UTILS package for Client Server
+  yum: name=nfs-utils state=present
+
+- name: Update fstab file
+  lineinfile:
+    path: /etc/fstab
+    line: "{{ address }}:/{{ volname }} {{ mount_point }} nfs defaults 0 0"
+- name: Verify mount directory exists
+  file:
+    path: "{{ mount_point }}"
+    state: directory
+- name: Mount nfs export
+  mount:
+    state: mounted
+    path: "{{ mount_point }}"
+    src: "{{ address }}:/{{ volname }}"
+    fstype: nfs
+

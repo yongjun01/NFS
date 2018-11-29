@@ -1,0 +1,12 @@
+hostname: 49.254.105.123
+username: admin
+password: Netapp123
+vserver: svm20181130
+aggr: n1_aggr1
+volname: vol20181130
+address: 49.254.105.216
+ansible_hostname: vdbench01
+size: 15
+state: present
+policy: ansiblepolicy
+mount_point: /srv
